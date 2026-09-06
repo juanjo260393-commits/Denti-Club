@@ -3,29 +3,273 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Denti Club</title>
+
+  <title>Denti Club | Tu sonrisa, más accesible</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5fbff;
+      color: #17324d;
+      line-height: 1.6;
+    }
+
+    header {
+      background: white;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #087ea4;
+    }
+
+    .logo span {
+      color: #19b5a5;
+    }
+
+    .hero {
+      padding: 80px 8%;
+      text-align: center;
+      background: linear-gradient(135deg, #dff8ff, #ffffff);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      color: #075b78;
+      margin-bottom: 15px;
+    }
+
+    .hero h2 {
+      font-size: 26px;
+      color: #19a99c;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 18px;
+      color: #526b7d;
+    }
+
+    .button {
+      display: inline-block;
+      background: #08a6b5;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 17px;
+      box-shadow: 0 5px 15px rgba(8,166,181,0.25);
+    }
+
+    .section {
+      padding: 65px 8%;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 34px;
+      color: #075b78;
+      margin-bottom: 35px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 18px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    }
+
+    .card .icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      color: #087ea4;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #647889;
+    }
+
+    .plans {
+      background: white;
+    }
+
+    .plan-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .plan {
+      border: 2px solid #d9eef5;
+      padding: 35px 20px;
+      border-radius: 20px;
+      background: #fafdff;
+    }
+
+    .plan.featured {
+      border-color: #08a6b5;
+      transform: translateY(-8px);
+    }
+
+    .plan h3 {
+      font-size: 25px;
+      color: #075b78;
+      margin-bottom: 15px;
+    }
+
+    .plan p {
+      color: #647889;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background: #075b78;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    footer p {
+      margin: 5px;
+    }
+
+    @media (max-width: 800px) {
+      .cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .plan-container {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <h1>Bienvenido a Denti Club</h1>
 
-  <h2>Tu salud dental, más accesible</h2>
+  <header>
+    <div class="logo">Denti<span>Club</span> 🦷</div>
+  </header>
 
-  <p>
-    Denti Club es una membresía dental pensada para ayudarte
-    a cuidar tu sonrisa y acceder a beneficios odontológicos.
-  </p>
+  <section class="hero">
+    <h1>Tu sonrisa, más accesible.</h1>
 
-  <h3>Beneficios</h3>
+    <h2>Bienvenido a Denti Club</h2>
 
-  <ul>
-    <li>Atención ante emergencias dentales</li>
-    <li>Descuentos en tratamientos odontológicos</li>
-    <li>Agenda de citas</li>
-    <li>Planes mensuales, trimestrales y anuales</li>
-  </ul>
+    <p>
+      Una membresía dental pensada para ayudarte a cuidar tu sonrisa,
+      acceder a atención ante emergencias y disfrutar beneficios
+      especiales en tratamientos odontológicos.
+    </p>
 
-  <button>Quiero ser parte de Denti Club</button>
+    <a href="#" class="button">Quiero ser parte de Denti Club</a>
+  </section>
+
+  <section class="section">
+    <h2>Beneficios de ser miembro</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">🚨</div>
+        <h3>Emergencias dentales</h3>
+        <p>Accede a atención ante situaciones odontológicas de emergencia.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">💎</div>
+        <h3>Descuentos</h3>
+        <p>Obtén beneficios especiales en diferentes tratamientos dentales.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">📅</div>
+        <h3>Agenda tus citas</h3>
+        <p>Organiza tus citas y mantén el cuidado de tu sonrisa.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🦷</div>
+        <h3>Cuidado accesible</h3>
+        <p>Una alternativa pensada para hacer más accesible el cuidado dental.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section plans">
+
+    <h2>Elige tu membresía</h2>
+
+    <div class="plan-container">
+
+      <div class="plan">
+        <h3>Mensual</h3>
+        <p>Ideal para comenzar a disfrutar de los beneficios de Denti Club.</p>
+        <a href="#" class="button">Ver plan</a>
+      </div>
+
+      <div class="plan featured">
+        <h3>Trimestral</h3>
+        <p>Disfruta tus beneficios durante tres meses.</p>
+        <a href="#" class="button">Ver plan</a>
+      </div>
+
+      <div class="plan">
+        <h3>Anual</h3>
+        <p>La opción pensada para quienes quieren cuidar su sonrisa todo el año.</p>
+        <a href="#" class="button">Ver plan</a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    <p><strong>Denti Club</strong> 🦷</p>
+    <p>Tu salud dental, más accesible.</p>
+  </footer>
 
 </body>
 </html>
