@@ -4,411 +4,824 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Denti Club | Tu sonrisa, más accesible</title>
+  <title>Denti Club | Protección dental para ti y tu familia</title>
+
+  <meta name="description" content="Denti Club: planes de protección dental accesibles para ti y tu familia. Prevención, emergencias, tratamientos y descuentos especiales.">
 
   <style>
+    :root {
+      --azul: #087ea4;
+      --azul-oscuro: #17324d;
+      --turquesa: #19b5a5;
+      --celeste: #eaf8fc;
+      --fondo: #f5fbff;
+      --blanco: #ffffff;
+      --gris: #607080;
+      --gris-claro: #e9eef2;
+      --verde: #159b75;
+      --sombra: 0 12px 35px rgba(23, 50, 77, 0.10);
+      --radio: 18px;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f5fbff;
-      color: #17324d;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--fondo);
+      color: var(--azul-oscuro);
       line-height: 1.6;
     }
 
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
     header {
-      background: white;
-      padding: 20px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      background: rgba(255,255,255,0.96);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      border-bottom: 1px solid #e4eef2;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     .logo {
-      font-size: 28px;
-      font-weight: bold;
-      color: #087ea4;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--azul);
     }
 
-    .logo span {
-      color: #19b5a5;
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--azul), var(--turquesa));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+      font-weight: bold;
     }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    nav a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--azul-oscuro);
+    }
+
+    nav a:hover {
+      color: var(--azul);
+    }
+
+    .nav-button {
+      background: var(--azul);
+      color: white !important;
+      padding: 11px 18px;
+      border-radius: 30px;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
-      padding: 80px 8%;
-      text-align: center;
-      background: linear-gradient(135deg, #dff8ff, #ffffff);
+      padding: 90px 0 75px;
+      background:
+        radial-gradient(circle at top right, #d8f7f4 0, transparent 35%),
+        linear-gradient(135deg, #f5fbff 0%, #ffffff 55%, #eafaf8 100%);
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #dff7f3;
+      color: #087d71;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 8px 14px;
+      border-radius: 30px;
+      margin-bottom: 18px;
     }
 
     .hero h1 {
-      font-size: 48px;
-      color: #075b78;
-      margin-bottom: 15px;
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: 1.05;
+      margin-bottom: 22px;
+      color: var(--azul-oscuro);
     }
 
-    .hero h2 {
-      font-size: 26px;
-      color: #19a99c;
-      margin-bottom: 20px;
+    .hero h1 span {
+      color: var(--azul);
     }
 
     .hero p {
-      max-width: 700px;
-      margin: 0 auto 30px;
-      font-size: 18px;
-      color: #526b7d;
+      font-size: 19px;
+      color: var(--gris);
+      max-width: 650px;
+      margin-bottom: 30px;
     }
 
-    .button {
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
       display: inline-block;
-      background: #08a6b5;
-      color: white;
-      padding: 15px 30px;
+      padding: 14px 23px;
       border-radius: 30px;
-      text-decoration: none;
       font-weight: bold;
-      font-size: 17px;
-      box-shadow: 0 5px 15px rgba(8,166,181,0.25);
-      transition: 0.3s;
+      transition: 0.25s;
     }
 
-    .button:hover {
+    .btn-primary {
+      background: var(--azul);
+      color: white;
+      box-shadow: 0 8px 20px rgba(8,126,164,0.22);
+    }
+
+    .btn-primary:hover {
       transform: translateY(-2px);
-      opacity: 0.9;
+      background: #066c8c;
     }
 
-    .section {
-      padding: 65px 8%;
+    .btn-secondary {
+      border: 2px solid var(--azul);
+      color: var(--azul);
+      background: white;
+    }
+
+    .btn-secondary:hover {
+      background: var(--celeste);
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: var(--sombra);
+      border: 1px solid #e3f0f4;
+    }
+
+    .hero-card-top {
       text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--gris-claro);
     }
 
-    .section h2 {
-      font-size: 34px;
-      color: #075b78;
-      margin-bottom: 35px;
+    .hero-card-icon {
+      font-size: 55px;
+      margin-bottom: 10px;
     }
 
-    .section-subtitle {
+    .hero-card h3 {
+      font-size: 25px;
+      margin-bottom: 5px;
+    }
+
+    .hero-card p {
+      font-size: 15px;
+      margin: 0;
+    }
+
+    .hero-list {
+      list-style: none;
+      margin-top: 22px;
+    }
+
+    .hero-list li {
+      margin: 12px 0;
+      font-size: 15px;
+    }
+
+    .check {
+      color: var(--verde);
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
+
+    section {
+      padding: 75px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title .small {
+      color: var(--turquesa);
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 13px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      margin: 8px 0 12px;
+    }
+
+    .section-title p {
       max-width: 700px;
-      margin: -15px auto 35px;
-      color: #647889;
+      margin: auto;
+      color: var(--gris);
     }
 
-    .cards {
+    /* =========================
+       HOW IT WORKS
+    ========================= */
+
+    .steps {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
 
-    .card {
+    .step {
       background: white;
-      padding: 30px 20px;
-      border-radius: 18px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+      border-radius: var(--radio);
+      padding: 27px 20px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(23,50,77,0.06);
     }
 
-    .card .icon {
-      font-size: 40px;
-      margin-bottom: 15px;
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: var(--celeste);
+      color: var(--azul);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      font-weight: bold;
+      font-size: 20px;
     }
 
-    .card h3 {
-      color: #087ea4;
-      margin-bottom: 10px;
+    .step h3 {
+      margin-bottom: 8px;
     }
 
-    .card p {
-      color: #647889;
+    .step p {
+      color: var(--gris);
+      font-size: 14px;
     }
 
-    /* PLANES */
+    /* =========================
+       PLANES
+    ========================= */
+
+    .plans-section {
+      background: #eef9fc;
+    }
 
     .plans {
-      background: white;
-    }
-
-    .plan-container {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-      max-width: 1100px;
-      margin: auto;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
       align-items: stretch;
     }
 
     .plan {
-      border: 2px solid #d9eef5;
-      padding: 35px 25px;
+      background: white;
       border-radius: 20px;
-      background: #fafdff;
+      padding: 26px 21px;
+      box-shadow: var(--sombra);
+      border: 1px solid #e1edf1;
       position: relative;
-      transition: 0.3s;
-    }
-
-    .plan:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
     }
 
     .plan.featured {
-      border-color: #08a6b5;
+      border: 2px solid var(--turquesa);
       transform: translateY(-8px);
-      box-shadow: 0 10px 30px rgba(8,166,181,0.15);
     }
 
-    .plan.featured:hover {
-      transform: translateY(-13px);
-    }
-
-    .plan.vip {
-      border-color: #19b5a5;
-      background: linear-gradient(180deg, #f2fffd, #ffffff);
-      box-shadow: 0 10px 30px rgba(25,181,165,0.15);
-    }
-
-    .badge {
+    .recommended {
       position: absolute;
-      top: -15px;
+      top: -13px;
       left: 50%;
       transform: translateX(-50%);
-      background: #08a6b5;
+      background: var(--turquesa);
       color: white;
-      padding: 7px 20px;
+      padding: 6px 14px;
       border-radius: 20px;
-      font-size: 13px;
+      font-size: 11px;
       font-weight: bold;
       white-space: nowrap;
     }
 
-    .vip .badge {
-      background: #19b5a5;
-    }
-
-    .plan h3 {
-      font-size: 25px;
-      color: #075b78;
+    .plan-name {
+      font-size: 23px;
+      font-weight: 800;
+      color: var(--azul);
       margin-bottom: 5px;
     }
 
-    .plan-type {
-      color: #19a99c;
-      font-weight: bold;
-      margin-bottom: 15px;
+    .plan-description {
+      font-size: 13px;
+      color: var(--gris);
+      min-height: 42px;
     }
 
     .price {
-      font-size: 38px;
-      font-weight: bold;
-      color: #087ea4;
-      margin: 10px 0;
+      margin: 20px 0;
+      font-size: 35px;
+      font-weight: 800;
+      color: var(--azul-oscuro);
     }
 
     .price small {
-      font-size: 15px;
-      color: #647889;
+      font-size: 14px;
+      color: var(--gris);
       font-weight: normal;
     }
 
-    .plan-description {
-      color: #647889;
-      margin-bottom: 20px;
+    .plan-highlight {
+      background: var(--celeste);
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 18px;
+      font-size: 13px;
+    }
+
+    .plan-highlight strong {
+      color: var(--azul);
     }
 
     .plan ul {
       list-style: none;
-      text-align: left;
-      margin: 20px 0 25px;
+      margin-bottom: 22px;
+      flex-grow: 1;
     }
 
     .plan li {
-      padding: 9px 0;
-      border-bottom: 1px solid #e7f2f5;
-      color: #526b7d;
+      font-size: 13px;
+      margin: 10px 0;
+      color: #425568;
     }
 
     .plan li::before {
       content: "✓";
-      color: #19b5a5;
+      color: var(--verde);
       font-weight: bold;
-      margin-right: 9px;
+      margin-right: 7px;
     }
 
-    /* EMERGENCIAS */
-
-    .emergency-section {
-      background: linear-gradient(135deg, #f0fbff, #ffffff);
+    .plan-button {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      border-radius: 25px;
+      background: var(--azul);
+      color: white;
+      font-weight: bold;
     }
 
-    .emergency-grid {
+    .plan-button:hover {
+      background: #066c8c;
+    }
+
+    /* =========================
+       BENEFITS
+    ========================= */
+
+    .benefits {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      max-width: 950px;
-      margin: auto;
+      gap: 20px;
     }
 
-    .emergency-item {
+    .benefit {
       background: white;
-      padding: 22px 15px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-      font-weight: bold;
-      color: #087ea4;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(23,50,77,0.06);
     }
 
-    .emergency-item span {
-      display: block;
-      font-size: 32px;
+    .benefit-icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .benefit h3 {
       margin-bottom: 8px;
     }
 
-    /* DESCUENTOS */
+    .benefit p {
+      color: var(--gris);
+      font-size: 14px;
+    }
 
-    .discounts {
+    /* =========================
+       COPAYS
+    ========================= */
+
+    .copays-section {
       background: white;
     }
+
+    .table-wrapper {
+      overflow-x: auto;
+      border-radius: 16px;
+      box-shadow: var(--sombra);
+    }
+
+    table {
+      width: 100%;
+      min-width: 850px;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    th {
+      background: var(--azul-oscuro);
+      color: white;
+      padding: 15px 10px;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    th:first-child {
+      text-align: left;
+    }
+
+    td {
+      padding: 13px 10px;
+      border-bottom: 1px solid #edf1f3;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    td:first-child {
+      text-align: left;
+      font-weight: 600;
+    }
+
+    tr:hover td {
+      background: #f8fcfd;
+    }
+
+    .dash {
+      color: #9aa5ad;
+    }
+
+    /* =========================
+       DISCOUNTS
+    ========================= */
 
     .discount-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 18px;
-      max-width: 950px;
-      margin: auto;
     }
 
-    .discount-item {
-      background: #f5fbff;
-      border: 1px solid #d9eef5;
-      padding: 22px 15px;
-      border-radius: 15px;
-      font-weight: bold;
-      color: #075b78;
-    }
-
-    .discount-item span {
-      display: block;
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-
-    .final-call {
-      background: linear-gradient(135deg, #075b78, #08a6b5);
-      color: white;
-      padding: 65px 8%;
+    .discount-card {
+      background: white;
+      border-radius: 18px;
+      padding: 25px 18px;
       text-align: center;
+      box-shadow: 0 8px 25px rgba(23,50,77,0.06);
     }
 
-    .final-call h2 {
-      font-size: 34px;
+    .discount-card h3 {
+      font-size: 17px;
       margin-bottom: 15px;
     }
 
-    .final-call p {
+    .discount-values {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .discount-values span {
+      padding: 6px 9px;
+      border-radius: 8px;
+      background: var(--celeste);
+      color: var(--azul);
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    /* =========================
+       PROTECTION
+    ========================= */
+
+    .protection {
+      background: linear-gradient(135deg, var(--azul-oscuro), #0c6078);
+      color: white;
+    }
+
+    .protection .section-title h2,
+    .protection .section-title p {
+      color: white;
+    }
+
+    .protection-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .protection-card {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 18px;
+      padding: 25px;
+    }
+
+    .protection-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .protection-card p {
+      color: #dcecf1;
+      font-size: 14px;
+    }
+
+    /* =========================
+       CARENCIAS
+    ========================= */
+
+    .waiting {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .waiting-info h2 {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .waiting-info p {
+      color: var(--gris);
+      margin-bottom: 20px;
+    }
+
+    .waiting-list {
+      list-style: none;
+    }
+
+    .waiting-list li {
+      padding: 11px 0;
+      border-bottom: 1px solid #e4ecef;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 14px;
+    }
+
+    .waiting-list strong {
+      color: var(--azul);
+      white-space: nowrap;
+    }
+
+    .warning-box {
+      background: #fff8e8;
+      border-left: 5px solid #e8a626;
+      border-radius: 12px;
+      padding: 25px;
+    }
+
+    .warning-box h3 {
+      color: #9a6812;
+      margin-bottom: 10px;
+    }
+
+    .warning-box p {
+      color: #6f5b32;
+      font-size: 14px;
+    }
+
+    /* =========================
+       FAQ
+    ========================= */
+
+    .faq {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    details {
+      background: white;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      padding: 18px 20px;
+      box-shadow: 0 5px 18px rgba(23,50,77,0.05);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--azul-oscuro);
+    }
+
+    details p {
+      color: var(--gris);
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta {
+      padding: 75px 0;
+      background: linear-gradient(135deg, #e2f8f6, #eaf8fc);
+    }
+
+    .cta-box {
+      background: white;
+      border-radius: 25px;
+      padding: 50px 30px;
+      text-align: center;
+      box-shadow: var(--sombra);
+    }
+
+    .cta-box h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .cta-box p {
+      color: var(--gris);
       max-width: 650px;
       margin: 0 auto 25px;
-      font-size: 18px;
     }
 
-    .final-call .button {
-      background: white;
-      color: #075b78;
-    }
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
-      background: #064963;
+      background: #10283d;
       color: white;
-      text-align: center;
-      padding: 30px 20px;
+      padding: 45px 0 25px;
     }
 
-    footer p {
-      margin: 5px;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 35px;
+      margin-bottom: 35px;
     }
 
-    .footer-note {
+    footer h3 {
+      margin-bottom: 12px;
+    }
+
+    footer p,
+    footer li {
+      color: #b9cbd5;
       font-size: 13px;
-      opacity: 0.8;
-      margin-top: 12px;
     }
 
-    @media (max-width: 900px) {
+    footer ul {
+      list-style: none;
+    }
 
-      .cards {
-        grid-template-columns: 1fr 1fr;
+    footer li {
+      margin: 7px 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 20px;
+      text-align: center;
+      color: #9fb4c0;
+      font-size: 12px;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 1050px) {
+      .plans {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .plan-container {
-        grid-template-columns: 1fr;
-        max-width: 500px;
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .plan.featured {
-        transform: none;
-      }
-
-      .plan.featured:hover {
-        transform: translateY(-5px);
-      }
-
-      .emergency-grid,
       .discount-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .hero h1 {
-        font-size: 40px;
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 850px) {
+      nav {
+        display: none;
+      }
 
-      header {
-        justify-content: center;
+      .hero-content,
+      .waiting {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits,
+      .protection-grid {
+        grid-template-columns: 1fr 1fr;
       }
 
       .hero {
-        padding: 60px 6%;
+        padding-top: 55px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: 94%;
+      }
+
+      section {
+        padding: 55px 0;
       }
 
       .hero h1 {
-        font-size: 34px;
-      }
-
-      .hero h2 {
-        font-size: 23px;
+        font-size: 42px;
       }
 
       .hero p {
         font-size: 16px;
       }
 
-      .section {
-        padding: 50px 6%;
-      }
-
-      .section h2 {
-        font-size: 29px;
-      }
-
-      .cards {
+      .plans,
+      .steps,
+      .benefits,
+      .protection-grid,
+      .discount-grid,
+      .footer-grid {
         grid-template-columns: 1fr;
       }
 
-      .emergency-grid,
-      .discount-grid {
-        grid-template-columns: 1fr;
+      .plan.featured {
+        transform: none;
       }
 
-      .price {
-        font-size: 34px;
+      .cta-box h2 {
+        font-size: 30px;
+      }
+
+      .waiting-info h2 {
+        font-size: 30px;
       }
     }
   </style>
@@ -416,81 +829,112 @@
 
 <body>
 
-  <!-- ENCABEZADO -->
+  <!-- =========================
+       HEADER
+  ========================= -->
 
   <header>
-    <div class="logo">Denti<span>Club</span> 🦷</div>
+    <div class="container nav">
+
+      <a href="#" class="logo">
+        <div class="logo-icon">D</div>
+        Denti Club
+      </a>
+
+      <nav>
+        <a href="#planes">Planes</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#copagos">Copagos</a>
+        <a href="#proteccion">Protección</a>
+        <a href="#faq">Preguntas</a>
+        <a href="#contacto" class="nav-button">Quiero ser parte</a>
+      </nav>
+
+    </div>
   </header>
 
 
-  <!-- PRESENTACIÓN -->
+  <!-- =========================
+       HERO
+  ========================= -->
 
   <section class="hero">
 
-    <h1>Tu sonrisa, más accesible.</h1>
+    <div class="container hero-content">
 
-    <h2>Bienvenido a Denti Club</h2>
+      <div>
 
-    <p>
-      Una membresía dental pensada para ayudarte a cuidar tu sonrisa,
-      acceder a atención ante emergencias y disfrutar beneficios
-      especiales en tratamientos odontológicos.
-    </p>
+        <span class="badge">
+          🦷 Protección dental inteligente
+        </span>
 
-    <a href="#planes" class="button">
-      Ver membresías
-    </a>
+        <h1>
+          Tu sonrisa merece
+          <span>estar protegida.</span>
+        </h1>
 
-  </section>
-
-
-  <!-- BENEFICIOS -->
-
-  <section class="section">
-
-    <h2>Beneficios de ser miembro</h2>
-
-    <p class="section-subtitle">
-      Disfruta de una forma más accesible de cuidar tu salud dental
-      y la de tu familia.
-    </p>
-
-    <div class="cards">
-
-      <div class="card">
-        <div class="icon">🚨</div>
-        <h3>Emergencias dentales</h3>
         <p>
-          Accede a atención ante situaciones odontológicas
-          consideradas de emergencia.
+          Denti Club es un plan de protección dental pensado para ayudarte
+          a cuidar tu salud bucal, prevenir problemas y acceder a atención
+          dental con beneficios y precios preferenciales.
         </p>
+
+        <div class="hero-buttons">
+          <a href="#planes" class="btn btn-primary">
+            Conocer los planes
+          </a>
+
+          <a href="#como-funciona" class="btn btn-secondary">
+            ¿Cómo funciona?
+          </a>
+        </div>
+
       </div>
 
-      <div class="card">
-        <div class="icon">💎</div>
-        <h3>Grandes descuentos</h3>
-        <p>
-          Obtén descuentos especiales en diferentes
-          tratamientos odontológicos.
-        </p>
-      </div>
 
-      <div class="card">
-        <div class="icon">📅</div>
-        <h3>Agenda tus citas</h3>
-        <p>
-          Organiza tus citas y mantén el cuidado
-          de tu sonrisa.
-        </p>
-      </div>
+      <div class="hero-card">
 
-      <div class="card">
-        <div class="icon">🦷</div>
-        <h3>Cuidado accesible</h3>
-        <p>
-          Una membresía pensada para hacer más accesible
-          el cuidado dental.
-        </p>
+        <div class="hero-card-top">
+
+          <div class="hero-card-icon">😁</div>
+
+          <h3>Denti Club</h3>
+
+          <p>
+            Protección dental para ti y tu familia.
+          </p>
+
+        </div>
+
+        <ul class="hero-list">
+
+          <li>
+            <span class="check">✓</span>
+            Atención preventiva
+          </li>
+
+          <li>
+            <span class="check">✓</span>
+            Beneficios para emergencias
+          </li>
+
+          <li>
+            <span class="check">✓</span>
+            Copagos preferenciales
+          </li>
+
+          <li>
+            <span class="check">✓</span>
+            Descuentos en tratamientos
+          </li>
+
+          <li>
+            <span class="check">✓</span>
+            Planes individuales y familiares
+          </li>
+
+        </ul>
+
       </div>
 
     </div>
@@ -498,263 +942,1342 @@
   </section>
 
 
-  <!-- PLANES -->
+  <!-- =========================
+       COMO FUNCIONA
+  ========================= -->
 
-  <section class="section plans" id="planes">
+  <section id="como-funciona">
 
-    <h2>Elige tu membresía</h2>
+    <div class="container">
 
-    <p class="section-subtitle">
-      Elige el plan que mejor se adapte a ti y disfruta
-      de los beneficios de Denti Club.
-    </p>
+      <div class="section-title">
 
-    <div class="plan-container">
+        <span class="small">Simple y transparente</span>
 
+        <h2>¿Cómo funciona Denti Club?</h2>
 
-      <!-- PLAN MENSUAL -->
-
-      <div class="plan">
-
-        <h3>Mensual</h3>
-
-        <div class="plan-type">
-          Plan Personal
-        </div>
-
-        <div class="price">
-          S/ 99.99
-          <small>/ mes</small>
-        </div>
-
-        <p class="plan-description">
-          Ideal para una persona que quiere comenzar
-          a disfrutar de los beneficios de Denti Club.
+        <p>
+          Elige el plan que mejor se adapte a tus necesidades y empieza
+          a cuidar tu salud dental de manera organizada.
         </p>
 
-        <ul>
-          <li>1 paciente</li>
-          <li>1 emergencia disponible al mes</li>
-          <li>Descuentos en tratamientos odontológicos</li>
+      </div>
+
+
+      <div class="steps">
+
+        <div class="step">
+
+          <div class="step-number">1</div>
+
+          <h3>Elige</h3>
+
+          <p>
+            Selecciona el plan que más se adapte a ti o a tu familia.
+          </p>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">2</div>
+
+          <h3>Afíliate</h3>
+
+          <p>
+            Registra tus datos y activa tu membresía Denti Club.
+          </p>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">3</div>
+
+          <h3>Espera tu carencia</h3>
+
+          <p>
+            Algunos beneficios tienen un período de espera antes de poder utilizarse.
+          </p>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">4</div>
+
+          <h3>Utiliza tus beneficios</h3>
+
+          <p>
+            Accede a las prestaciones incluidas según las condiciones de tu plan.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       PLANES
+  ========================= -->
+
+  <section id="planes" class="plans-section">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span class="small">Nuestros planes</span>
+
+        <h2>Encuentra tu plan ideal</h2>
+
+        <p>
+          Cuatro niveles de protección para diferentes necesidades.
+        </p>
+
+      </div>
+
+
+      <div class="plans">
+
+
+        <!-- ESENCIAL -->
+
+        <div class="plan">
+
+          <div class="plan-name">
+            Denti Esencial
+          </div>
+
+          <div class="plan-description">
+            Protección básica para cuidar tu salud dental.
+          </div>
+
+          <div class="price">
+            S/69.99
+            <small>/ mes</small>
+          </div>
+
+          <div class="plan-highlight">
+            <strong>1 afiliado</strong><br>
+            Límite anual de beneficios: S/500
+          </div>
+
+          <ul>
+
+            <li>1 evaluación dental al año</li>
+
+            <li>1 limpieza + fluor al año</li>
+
+            <li>Hasta 2 radiografías periapicales</li>
+
+            <li>Hasta 2 atenciones de emergencia</li>
+
+            <li>Evaluación de caries y encías</li>
+
+            <li>Atención inicial del dolor dental</li>
+
+            <li>Descuentos en tratamientos no cubiertos</li>
+
+          </ul>
+
+          <a href="#contacto" class="plan-button">
+            Elegir Esencial
+          </a>
+
+        </div>
+
+
+        <!-- PLUS -->
+
+        <div class="plan">
+
+          <div class="plan-name">
+            Denti Plus
+          </div>
+
+          <div class="plan-description">
+            Más prevención y mayor protección.
+          </div>
+
+          <div class="price">
+            S/89.99
+            <small>/ mes</small>
+          </div>
+
+          <div class="plan-highlight">
+            <strong>1 afiliado</strong><br>
+            Límite anual de beneficios: S/1,000
+          </div>
+
+          <ul>
+
+            <li>2 evaluaciones al año</li>
+
+            <li>2 limpiezas + fluor al año</li>
+
+            <li>Hasta 4 radiografías</li>
+
+            <li>Hasta 4 atenciones de emergencia</li>
+
+            <li>Hasta 2 restauraciones simples</li>
+
+            <li>1 extracción simple al año</li>
+
+            <li>Copagos preferenciales</li>
+
+            <li>Descuentos en tratamientos especiales</li>
+
+          </ul>
+
+          <a href="#contacto" class="plan-button">
+            Elegir Plus
+          </a>
+
+        </div>
+
+
+        <!-- FAMILIAR -->
+
+        <div class="plan featured">
+
+          <span class="recommended">
+            MÁS ELEGIDO PARA FAMILIAS
+          </span>
+
+          <div class="plan-name">
+            Denti Familiar
+          </div>
+
+          <div class="plan-description">
+            Protección dental para toda la familia.
+          </div>
+
+          <div class="price">
+            S/149.99
+            <small>/ mes</small>
+          </div>
+
+          <div class="plan-highlight">
+            <strong>Hasta 4 afiliados</strong><br>
+            Límite anual: S/1,500 por afiliado
+          </div>
+
+          <ul>
+
+            <li>3 evaluaciones por afiliado/año</li>
+
+            <li>3 limpiezas + fluor por afiliado</li>
+
+            <li>Hasta 6 radiografías</li>
+
+            <li>Hasta 6 emergencias</li>
+
+            <li>Hasta 4 restauraciones</li>
+
+            <li>Hasta 2 extracciones simples</li>
+
+            <li>Atención inicial de infecciones</li>
+
+            <li>Tratamiento de fracturas dentales</li>
+
+            <li>Endodoncia con copago</li>
+
+            <li>Descuentos especiales</li>
+
+          </ul>
+
+          <a href="#contacto" class="plan-button">
+            Elegir Familiar
+          </a>
+
+        </div>
+
+
+        <!-- PREMIUM -->
+
+        <div class="plan">
+
+          <div class="plan-name">
+            Denti Premium
+          </div>
+
+          <div class="plan-description">
+            Nuestra mayor protección y beneficios preferenciales.
+          </div>
+
+          <div class="price">
+            S/219.99
+            <small>/ mes</small>
+          </div>
+
+          <div class="plan-highlight">
+            <strong>Hasta 5 afiliados</strong><br>
+            Límite anual: S/2,500 por afiliado
+          </div>
+
+          <ul>
+
+            <li>Prevención periódica</li>
+
+            <li>Radiografías según necesidad y plan</li>
+
+            <li>Beneficio ampliado para emergencias</li>
+
+            <li>Restauraciones con copago reducido</li>
+
+            <li>Extracciones con copago preferencial</li>
+
+            <li>Endodoncia con copago preferencial</li>
+
+            <li>Reconstrucciones preferenciales</li>
+
+            <li>Rehabilitación seleccionada</li>
+
+            <li>Atención prioritaria</li>
+
+            <li>Mayores descuentos</li>
+
+          </ul>
+
+          <a href="#contacto" class="plan-button">
+            Elegir Premium
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       BENEFICIOS
+  ========================= -->
+
+  <section id="beneficios">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span class="small">Más que una membresía</span>
+
+        <h2>Beneficios que te acompañan</h2>
+
+        <p>
+          Denti Club combina prevención, atención y acceso preferencial
+          para ayudarte a mantener una mejor salud dental.
+        </p>
+
+      </div>
+
+
+      <div class="benefits">
+
+        <div class="benefit">
+
+          <div class="benefit-icon">🦷</div>
+
+          <h3>Prevención</h3>
+
+          <p>
+            Evaluaciones, limpiezas, fluor y radiografías según el plan.
+          </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+          <div class="benefit-icon">🚨</div>
+
+          <h3>Emergencias</h3>
+
+          <p>
+            Beneficios para situaciones de dolor, fracturas e infecciones
+            de acuerdo con las condiciones del plan.
+          </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+          <div class="benefit-icon">💳</div>
+
+          <h3>Copagos preferenciales</h3>
+
+          <p>
+            Accede a determinados tratamientos pagando un monto definido
+            según tu nivel de protección.
+          </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+          <div class="benefit-icon">👨‍👩‍👧‍👦</div>
+
+          <h3>Protección familiar</h3>
+
+          <p>
+            Los planes Familiar y Premium permiten incluir a varios afiliados.
+          </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+          <div class="benefit-icon">✨</div>
+
+          <h3>Descuentos especiales</h3>
+
+          <p>
+            Accede a precios preferenciales en procedimientos que no forman
+            parte de la cobertura directa.
+          </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+          <div class="benefit-icon">⭐</div>
+
+          <h3>Atención prioritaria</h3>
+
+          <p>
+            El plan Premium incorpora beneficios de atención preferencial
+            según disponibilidad y condiciones del servicio.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       COPAGOS
+  ========================= -->
+
+  <section id="copagos" class="copays-section">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span class="small">Transparencia</span>
+
+        <h2>Copagos preferenciales</h2>
+
+        <p>
+          Estos son algunos de los copagos definidos para los procedimientos
+          incluidos en cada plan.
+        </p>
+
+      </div>
+
+
+      <div class="table-wrapper">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Procedimiento</th>
+              <th>Normal</th>
+              <th>Esencial</th>
+              <th>Plus</th>
+              <th>Familiar</th>
+              <th>Premium</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>Evaluación</td>
+              <td>S/20</td>
+              <td>S/0</td>
+              <td>S/0</td>
+              <td>S/0</td>
+              <td>S/0</td>
+            </tr>
+
+            <tr>
+              <td>Limpieza + fluor</td>
+              <td>S/100</td>
+              <td>S/50</td>
+              <td>S/30</td>
+              <td>S/20</td>
+              <td>S/0</td>
+            </tr>
+
+            <tr>
+              <td>Radiografía periapical</td>
+              <td>S/30</td>
+              <td>S/15</td>
+              <td>S/10</td>
+              <td>S/5</td>
+              <td>S/0</td>
+            </tr>
+
+            <tr>
+              <td>Restauración simple</td>
+              <td>S/50</td>
+              <td class="dash">—</td>
+              <td>S/25</td>
+              <td>S/15</td>
+              <td>S/10</td>
+            </tr>
+
+            <tr>
+              <td>Restauración compleja</td>
+              <td>S/80</td>
+              <td class="dash">—</td>
+              <td>S/45</td>
+              <td>S/30</td>
+              <td>S/20</td>
+            </tr>
+
+            <tr>
+              <td>Extracción simple</td>
+              <td>S/50</td>
+              <td class="dash">—</td>
+              <td>S/25</td>
+              <td>S/15</td>
+              <td>S/10</td>
+            </tr>
+
+            <tr>
+              <td>Extracción compleja</td>
+              <td>S/80</td>
+              <td class="dash">—</td>
+              <td>S/50</td>
+              <td>S/35</td>
+              <td>S/25</td>
+            </tr>
+
+            <tr>
+              <td>Extracción infantil</td>
+              <td>S/50</td>
+              <td>S/30</td>
+              <td>S/20</td>
+              <td>S/10</td>
+              <td>S/0</td>
+            </tr>
+
+            <tr>
+              <td>Endodoncia anterior</td>
+              <td>S/300</td>
+              <td>Descuento</td>
+              <td>S/220</td>
+              <td>S/180</td>
+              <td>S/130</td>
+            </tr>
+
+            <tr>
+              <td>Endodoncia molar</td>
+              <td>S/400</td>
+              <td>Descuento</td>
+              <td>S/300</td>
+              <td>S/240</td>
+              <td>S/180</td>
+            </tr>
+
+            <tr>
+              <td>Reconstrucción</td>
+              <td>S/100</td>
+              <td>Descuento</td>
+              <td>S/60</td>
+              <td>S/45</td>
+              <td>S/30</td>
+            </tr>
+
+            <tr>
+              <td>Poste de fibra de vidrio</td>
+              <td>S/150</td>
+              <td>Descuento</td>
+              <td>Descuento</td>
+              <td>S/120</td>
+              <td>S/90</td>
+            </tr>
+
+            <tr>
+              <td>Inlay / Onlay</td>
+              <td>S/250</td>
+              <td>Descuento</td>
+              <td>Descuento</td>
+              <td>S/200</td>
+              <td>S/150</td>
+            </tr>
+
+            <tr>
+              <td>Tercer molar</td>
+              <td>Desde S/200</td>
+              <td>Descuento</td>
+              <td>S/150</td>
+              <td>S/120</td>
+              <td>S/80</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       DESCUENTOS
+  ========================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span class="small">Más beneficios</span>
+
+        <h2>Descuentos en tratamientos especiales</h2>
+
+        <p>
+          Algunos tratamientos no tienen cobertura directa, pero cuentan
+          con precios preferenciales según el plan.
+        </p>
+
+      </div>
+
+
+      <div class="discount-grid">
+
+
+        <div class="discount-card">
+
+          <h3>Coronas dentales</h3>
+
+          <div class="discount-values">
+
+            <span>Familiar 15%</span>
+            <span>Premium 25%</span>
+
+          </div>
+
+        </div>
+
+
+        <div class="discount-card">
+
+          <h3>Prótesis</h3>
+
+          <div class="discount-values">
+
+            <span>Plus 10%</span>
+            <span>Familiar 20%</span>
+            <span>Premium 30%</span>
+
+          </div>
+
+        </div>
+
+
+        <div class="discount-card">
+
+          <h3>Blanqueamiento</h3>
+
+          <div class="discount-values">
+
+            <span>Esencial 5%</span>
+            <span>Plus 10%</span>
+            <span>Familiar 15%</span>
+            <span>Premium 25%</span>
+
+          </div>
+
+        </div>
+
+
+        <div class="discount-card">
+
+          <h3>Carillas de resina</h3>
+
+          <div class="discount-values">
+
+            <span>Esencial 5%</span>
+            <span>Plus 10%</span>
+            <span>Familiar 15%</span>
+            <span>Premium 25%</span>
+
+          </div>
+
+        </div>
+
+
+        <div class="discount-card">
+
+          <h3>Ortodoncia</h3>
+
+          <div class="discount-values">
+
+            <span>Esencial 5%</span>
+            <span>Plus 10%</span>
+            <span>Familiar 15%</span>
+            <span>Premium 25%</span>
+
+          </div>
+
+        </div>
+
+
+        <div class="discount-card">
+
+          <h3>Implantes</h3>
+
+          <div class="discount-values">
+
+            <span>Descuento según plan</span>
+
+          </div>
+
+        </div>
+
+
+        <div class="discount-card">
+
+          <h3>Prótesis removible</h3>
+
+          <div class="discount-values">
+
+            <span>Plus 10%</span>
+            <span>Familiar 20%</span>
+            <span>Premium 30%</span>
+
+          </div>
+
+        </div>
+
+
+        <div class="discount-card">
+
+          <h3>Prótesis completa</h3>
+
+          <div class="discount-values">
+
+            <span>Plus 10%</span>
+            <span>Familiar 20%</span>
+            <span>Premium 30%</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       PROTECCION
+  ========================= -->
+
+  <section id="proteccion" class="protection">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span class="small">Protección del plan</span>
+
+        <h2>Reglas claras para protegerte y proteger Denti Club</h2>
+
+        <p>
+          Nuestro modelo está diseñado para mantener beneficios accesibles
+          y sostenibles.
+        </p>
+
+      </div>
+
+
+      <div class="protection-grid">
+
+        <div class="protection-card">
+
+          <h3>📌 Límite anual</h3>
+
+          <p>
+            Cada afiliado cuenta con un límite anual de beneficios según
+            el plan contratado.
+          </p>
+
+        </div>
+
+
+        <div class="protection-card">
+
+          <h3>⏱️ Frecuencia</h3>
+
+          <p>
+            Algunos procedimientos tienen un número máximo de usos por año.
+          </p>
+
+        </div>
+
+
+        <div class="protection-card">
+
+          <h3>🛡️ Preexistencias</h3>
+
+          <p>
+            Las condiciones, tratamientos o procedimientos existentes antes
+            de la afiliación pueden quedar excluidos.
+          </p>
+
+        </div>
+
+
+        <div class="protection-card">
+
+          <h3>🔐 Autorización</h3>
+
+          <p>
+            Algunos procedimientos de mayor costo pueden requerir evaluación
+            y autorización previa.
+          </p>
+
+        </div>
+
+
+        <div class="protection-card">
+
+          <h3>💡 Necesidad clínica</h3>
+
+          <p>
+            Los beneficios corresponden a procedimientos clínicamente
+            necesarios y elegibles dentro del plan.
+          </p>
+
+        </div>
+
+
+        <div class="protection-card">
+
+          <h3>⚕️ Materiales</h3>
+
+          <p>
+            Si el paciente elige materiales o alternativas de mayor costo,
+            deberá asumir la diferencia correspondiente.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CARENCIAS
+  ========================= -->
+
+  <section>
+
+    <div class="container waiting">
+
+      <div class="waiting-info">
+
+        <span class="badge">
+          Periodos de espera
+        </span>
+
+        <h2>
+          Algunos beneficios requieren carencia.
+        </h2>
+
+        <p>
+          La carencia permite organizar correctamente el plan y proteger
+          la sostenibilidad de Denti Club para todos sus afiliados.
+        </p>
+
+        <ul class="waiting-list">
+
+          <li>
+            Evaluación inicial
+            <strong>0 días</strong>
+          </li>
+
+          <li>
+            Emergencia
+            <strong>0 días</strong>
+          </li>
+
+          <li>
+            Radiografía
+            <strong>0 días</strong>
+          </li>
+
+          <li>
+            Limpieza + fluor
+            <strong>30 días</strong>
+          </li>
+
+          <li>
+            Restauraciones
+            <strong>30 días</strong>
+          </li>
+
+          <li>
+            Extracción simple
+            <strong>30 días</strong>
+          </li>
+
+          <li>
+            Extracción compleja
+            <strong>60 días</strong>
+          </li>
+
+          <li>
+            Endodoncia
+            <strong>90 días</strong>
+          </li>
+
+          <li>
+            Reconstrucción
+            <strong>90 días</strong>
+          </li>
+
+          <li>
+            Coronas
+            <strong>180 días</strong>
+          </li>
+
+          <li>
+            Prótesis
+            <strong>180 días</strong>
+          </li>
+
+          <li>
+            Ortodoncia
+            <strong>180 días</strong>
+          </li>
+
+          <li>
+            Estética
+            <strong>180 días</strong>
+          </li>
+
         </ul>
 
-        <a href="#" class="button">
-          Elegir plan
+      </div>
+
+
+      <div class="warning-box">
+
+        <h3>Importante</h3>
+
+        <p>
+          Los periodos de carencia no convierten en cubierto un tratamiento
+          que corresponda a una condición preexistente. Los tratamientos,
+          procedimientos o indicaciones existentes antes de la afiliación
+          pueden estar excluidos.
+        </p>
+
+        <br>
+
+        <p>
+          Las emergencias no significan tratamiento ilimitado. Cada atención
+          está sujeta al plan, procedimiento elegible, frecuencia, copago,
+          límite anual y demás condiciones aplicables.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       LIMITES
+  ========================= -->
+
+  <section class="plans-section">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span class="small">Tu nivel de protección</span>
+
+        <h2>Límite anual por afiliado</h2>
+
+        <p>
+          El límite representa el máximo anual de beneficios reconocibles
+          por afiliado según las condiciones del plan.
+        </p>
+
+      </div>
+
+
+      <div class="plans">
+
+
+        <div class="plan">
+
+          <div class="plan-name">
+            Esencial
+          </div>
+
+          <div class="price">
+            S/500
+          </div>
+
+          <div class="plan-description">
+            Máximo anual de beneficios por afiliado.
+          </div>
+
+        </div>
+
+
+        <div class="plan">
+
+          <div class="plan-name">
+            Plus
+          </div>
+
+          <div class="price">
+            S/1,000
+          </div>
+
+          <div class="plan-description">
+            Máximo anual de beneficios por afiliado.
+          </div>
+
+        </div>
+
+
+        <div class="plan">
+
+          <div class="plan-name">
+            Familiar
+          </div>
+
+          <div class="price">
+            S/1,500
+          </div>
+
+          <div class="plan-description">
+            Máximo anual por cada afiliado incluido.
+          </div>
+
+        </div>
+
+
+        <div class="plan">
+
+          <div class="plan-name">
+            Premium
+          </div>
+
+          <div class="price">
+            S/2,500
+          </div>
+
+          <div class="plan-description">
+            Máximo anual por cada afiliado incluido.
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FAQ
+  ========================= -->
+
+  <section id="faq">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span class="small">Preguntas frecuentes</span>
+
+        <h2>Queremos que tengas todo claro</h2>
+
+      </div>
+
+
+      <div class="faq">
+
+
+        <details>
+
+          <summary>
+            ¿Denti Club es un seguro dental?
+          </summary>
+
+          <p>
+            Denti Club está diseñado como un plan de protección y membresía
+            dental. Su estructura puede incorporar elementos similares a un
+            modelo de protección, pero sus condiciones definitivas deberán
+            ser revisadas y adecuadas al marco legal aplicable antes de su
+            comercialización como producto asegurador.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            ¿El límite anual es dinero que recibo?
+          </summary>
+
+          <p>
+            No. El límite anual representa el máximo de beneficios que pueden
+            reconocerse para el afiliado durante el periodo correspondiente,
+            siempre sujeto a las condiciones del plan.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            ¿Puedo afiliarme y utilizar inmediatamente todos los tratamientos?
+          </summary>
+
+          <p>
+            No necesariamente. Algunos beneficios tienen carencia. La
+            evaluación inicial, emergencias y radiografías tienen carencia
+            de 0 días en la propuesta actual, mientras que otros tratamientos
+            pueden requerir 30, 60, 90 o 180 días.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            ¿Las enfermedades o tratamientos anteriores están cubiertos?
+          </summary>
+
+          <p>
+            Las condiciones, tratamientos o procedimientos previamente
+            diagnosticados, indicados, iniciados o pendientes antes de la
+            afiliación pueden considerarse preexistentes y quedar excluidos.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            ¿Las emergencias son ilimitadas?
+          </summary>
+
+          <p>
+            No. Cada plan tiene un número definido de atenciones de emergencia
+            o un beneficio ampliado sujeto a sus condiciones, límites, copagos
+            y disponibilidad.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            ¿Los implantes están incluidos?
+          </summary>
+
+          <p>
+            Los implantes no forman parte de la cobertura directa de los planes
+            actuales. Se contempla un beneficio mediante descuento según las
+            condiciones comerciales del plan.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            ¿La ortodoncia está cubierta?
+          </summary>
+
+          <p>
+            La ortodoncia no forma parte de la cobertura directa. Los afiliados
+            pueden acceder a descuentos según el plan contratado.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            ¿Puedo elegir un material más costoso?
+          </summary>
+
+          <p>
+            Sí, cuando clínicamente corresponda y sea autorizado. Denti Club
+            reconoce el beneficio correspondiente al plan y el afiliado
+            asume cualquier diferencia por materiales o alternativas de
+            mayor costo.
+          </p>
+
+        </details>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CTA
+  ========================= -->
+
+  <section id="contacto" class="cta">
+
+    <div class="container">
+
+      <div class="cta-box">
+
+        <h2>
+          Protege tu sonrisa con Denti Club
+        </h2>
+
+        <p>
+          Elige el plan que mejor se adapte a ti o a tu familia y comienza
+          a construir una forma más accesible y organizada de cuidar tu
+          salud dental.
+        </p>
+
+        <a href="mailto:contacto@denticclub.com" class="btn btn-primary">
+          Quiero ser parte de Denti Club
         </a>
 
       </div>
 
-
-      <!-- PLAN TRIMESTRAL -->
-
-      <div class="plan featured">
-
-        <div class="badge">
-          MÁS ELEGIDO
-        </div>
-
-        <h3>Trimestral</h3>
-
-        <div class="plan-type">
-          Plan Familiar
-        </div>
-
-        <div class="price">
-          S/ 269.99
-          <small>/ 3 meses</small>
-        </div>
-
-        <p class="plan-description">
-          Una opción ideal para cuidar a toda la familia
-          y disfrutar de mayores beneficios.
-        </p>
-
-        <ul>
-          <li>De 1 a 4 pacientes</li>
-          <li>4 emergencias disponibles al mes</li>
-          <li>25% de descuento en tratamientos odontológicos</li>
-        </ul>
-
-        <a href="#" class="button">
-          Elegir plan
-        </a>
-
-      </div>
-
-
-      <!-- PLAN ANUAL VIP -->
-
-      <div class="plan vip">
-
-        <div class="badge">
-          ⭐ PLAN VIP
-        </div>
-
-        <h3>Anual</h3>
-
-        <div class="plan-type">
-          Membresía VIP
-        </div>
-
-        <div class="price">
-          S/ 1,079.99
-          <small>/ año</small>
-        </div>
-
-        <p class="plan-description">
-          La membresía exclusiva para quienes buscan
-          máxima protección y beneficios.
-        </p>
-
-        <ul>
-          <li>De 1 a 8 pacientes VIP</li>
-          <li>Emergencias ilimitadas</li>
-          <li>50% de descuento en tratamientos odontológicos</li>
-        </ul>
-
-        <a href="#" class="button">
-          Elegir plan VIP
-        </a>
-
-      </div>
-
     </div>
 
   </section>
 
 
-  <!-- EMERGENCIAS -->
-
-  <section class="section emergency-section">
-
-    <h2>¿Qué consideramos una emergencia?</h2>
-
-    <p class="section-subtitle">
-      Denti Club contempla las siguientes situaciones como
-      emergencias odontológicas:
-    </p>
-
-    <div class="emergency-grid">
-
-      <div class="emergency-item">
-        <span>😣</span>
-        Dolor dental
-      </div>
-
-      <div class="emergency-item">
-        <span>🦷</span>
-        Fractura dental
-      </div>
-
-      <div class="emergency-item">
-        <span>🔧</span>
-        Fractura de prótesis
-      </div>
-
-      <div class="emergency-item">
-        <span>👑</span>
-        Desprendimiento de corona o puente
-      </div>
-
-      <div class="emergency-item">
-        <span>🦷</span>
-        Extracción dental
-      </div>
-
-      <div class="emergency-item">
-        <span>💉</span>
-        Endodoncia
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- DESCUENTOS -->
-
-  <section class="section discounts">
-
-    <h2>Tratamientos con descuento</h2>
-
-    <p class="section-subtitle">
-      Los miembros de Denti Club pueden acceder a descuentos
-      especiales según el plan elegido.
-    </p>
-
-    <div class="discount-grid">
-
-      <div class="discount-item">
-        <span>✨</span>
-        Carillas estéticas
-      </div>
-
-      <div class="discount-item">
-        <span>😁</span>
-        Ortodoncia
-      </div>
-
-      <div class="discount-item">
-        <span>🦷</span>
-        Prótesis
-      </div>
-
-      <div class="discount-item">
-        <span>✨</span>
-        Blanqueamiento dental
-      </div>
-
-      <div class="discount-item">
-        <span>🦷</span>
-        Puentes fijos
-      </div>
-
-      <div class="discount-item">
-        <span>💉</span>
-        Endodoncias
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- LLAMADO FINAL -->
-
-  <section class="final-call">
-
-    <h2>Cuida tu sonrisa con Denti Club 🦷</h2>
-
-    <p>
-      Elige tu membresía, disfruta de beneficios exclusivos
-      y haz que el cuidado dental sea más accesible para ti
-      y tu familia.
-    </p>
-
-    <a href="#planes" class="button">
-      Ver planes
-    </a>
-
-  </section>
-
-
-  <!-- PIE DE PÁGINA -->
+  <!-- =========================
+       FOOTER
+  ========================= -->
 
   <footer>
 
-    <p>
-      <strong>Denti Club</strong> 🦷
-    </p>
+    <div class="container">
 
-    <p>
-      Tu salud dental, más accesible.
-    </p>
+      <div class="footer-grid">
 
-    <p class="footer-note">
-      Membresía dental · Emergencias · Beneficios odontológicos
-    </p>
+        <div>
+
+          <div class="logo" style="color:white; margin-bottom:15px;">
+            <div class="logo-icon">D</div>
+            Denti Club
+          </div>
+
+          <p>
+            Protección dental más accesible para ti y tu familia.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3>Planes</h3>
+
+          <ul>
+
+            <li>Denti Esencial</li>
+            <li>Denti Plus</li>
+            <li>Denti Familiar</li>
+            <li>Denti Premium</li>
+
+          </ul>
+
+        </div>
+
+
+        <div>
+
+          <h3>Información</h3>
+
+          <ul>
+
+            <li>Beneficios</li>
+            <li>Copagos</li>
+            <li>Preguntas frecuentes</li>
+            <li>Términos y condiciones</li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        © 2026 Denti Club. Todos los derechos reservados.
+
+        <br><br>
+
+        La información presentada en esta página corresponde a una propuesta
+        comercial y está sujeta a los términos, condiciones y revisión legal
+        correspondientes antes de su implementación definitiva.
+
+      </div>
+
+    </div>
 
   </footer>
+
 
 </body>
 </html>
